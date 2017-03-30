@@ -86,6 +86,14 @@ public class GTVGFilter implements Filter {
             throws ServletException {
         
         try {
+
+            // This prevents triggering engine executions for resource URLs
+            if (request.getRequestURI().startsWith("/css") ||
+                    request.getRequestURI().startsWith("/images") ||
+                    request.getRequestURI().startsWith("/favicon")) {
+                return false;
+            }
+
             
             /*
              * Query controller/URL mapping and obtain the controller
@@ -120,6 +128,11 @@ public class GTVGFilter implements Filter {
             return true;
             
         } catch (Exception e) {
+            try {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            } catch (final IOException ignored) {
+                // Just ignore this
+            }
             throw new ServletException(e);
         }
         
