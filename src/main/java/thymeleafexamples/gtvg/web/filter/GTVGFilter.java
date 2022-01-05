@@ -38,7 +38,7 @@ import org.thymeleaf.templateresolver.WebApplicationTemplateResolver;
 import org.thymeleaf.web.IWebApplication;
 import org.thymeleaf.web.IWebExchange;
 import org.thymeleaf.web.IWebRequest;
-import org.thymeleaf.web.servlet.javax.JavaxServletWebApplication;
+import org.thymeleaf.web.servlet.JavaxServletWebApplication;
 import thymeleafexamples.gtvg.business.entities.User;
 import thymeleafexamples.gtvg.web.controller.IGTVGController;
 import thymeleafexamples.gtvg.web.mapping.ControllerMappings;
